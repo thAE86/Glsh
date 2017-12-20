@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>兰州市古浪商会</title>
+<link href="__PUBLIC__/css/css.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/css/daohang.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/css/banner.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/css/liebiao.css" rel="stylesheet" type="text/css" />
+
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.touchSlider.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/script.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/ks-switch.pack.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/uaredirect.js"> </script>
+
+
+</head>
+
+<body>
+<div class="top">
+    <div class="top_blank">
+        <a href="index.html">
+            <div class="logo">
+                <img src="__PUBLIC__/images/hz_logo.jpg" />
+            </div>
+        </a>
+        <a href="#"><div class="tele_wap">加入收藏</div></a>
+        <a href="#"><div class="tele_wap"></div></a>
+        <div class="top_tel"></div>
+    </div>
+</div>
+<!-- 导航开始 -->
+<nav class="nav pr">
+    <ul class="nav-in">
+        <foreach name="sort_listA" item="v" >
+            <if condition="$v.sort_al eq 0 " >
+                <li class="fl tac">
+                    <a href="{:U($v['sort_path'])}"  class="ffffff">{$v.sort_name}</a>
+                </li>
+            <elseif condition="$v.sort_al eq 1 " />
+               <li class="fl tac gm-project box-s ymbd" >
+                   <a href="{:U($v['sort_path'])}"  class="ffffff">{$v.sort_name}</a>
+                   <ul class="gmp-ul box-s pr ofh" style="">
+                       <foreach name="sort_listA" item="vo">
+                           <if condition="$v.id eq $vo.sort_pid ">
+                               <li class="gmp-list">
+                                   <a href="{:U($vo['sort_path'])}"  class="cl271c1c box-s">{$vo.sort_name}</a>
+                               </li>                   
+                           </if> 
+                       </foreach>
+                   </ul>
+               </li>
+           <elseif condition="$v.sort_al eq 2 " />
+              <li class="fl tac box-s gm-project ymbd" >
+               <a href="{:U($v['sort_path'])}"  class="ffffff">{$v.sort_name}</a>
+               <ul class="gmp-ul box-s pr ofh" >                     
+                  <foreach name="sort_listA" item="vo">
+                      <if condition="$v.id eq $vo.sort_pid ">
+                          <li class="gmp-list">
+                              <a href="{:U($vo['sort_path'])}"  class="cl271c1c box-s">{$vo.sort_name}</a>
+                              
+                          </li>                   
+                      </if> 
+                  </foreach>
+              </ul>
+              </li>
+            </if>
+        </foreach>
+    </ul>
+</nav>
+<!-- 导航结束 -->
+
+<!-- banner图开始  -->
+ <div class="slider_box" id="slider_name"  >
+    <ul class="silder_con"> 
+        <foreach name="banner_list" item="v1">
+            <li class="silder_panel">
+                <img src="__PUBLIC__/{$v1.picname}" />
+            </li> 
+        </foreach>
+    </ul>
+   
+</div> 
+<script>
+// function imgWidth(){
+//     var winWidth=$(window).width();
+//     var bgLeft=$(".silder_panel").width()-winWidth;
+//     var liLength=$("#slider_name .silder_nav li").length;
+//     var liWidth=(winWidth/liLength)-(0.003*winWidth);
+//     $(".silder_panel a").css({"width":winWidth+bgLeft , "margin-left":-bgLeft/2});
+//     //$("#slider_name .silder_nav li").css("width",liWidth);
+// }
+// imgWidth();
+// $(window).resize(function() {
+//     imgWidth();
+// });
+</script>
+<!-- banner图结束  -->

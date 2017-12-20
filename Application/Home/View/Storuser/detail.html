@@ -1,0 +1,155 @@
+<!--头部-->
+<include file="Public/header" />
+<style>
+li, dl { list-style-type:none; }
+li{vertical-align: bottom}
+.main{padding-top:20px;}
+.width{width:1200px;margin:0 auto;height:auto}
+.fleft{float:left}
+.nei_main{overflow:hidden;padding-bottom:20px;}
+.nav_left5{width:210px;float:left;background:#2F88DA;min-height:560px;padding-bottom:15px;color:#fff;}
+.nav5_tit{background:url(../images/icon03.jpg) repeat;height:100px;text-align:center;}
+.nav5_tit strong{display:block;font-size:18px;margin-bottom:3px;padding-top:23px;}
+.nav5_tit span{display:block;font-size:14px;}
+.nav5_list{ overflow:hidden;margin-top:5px;}
+.nav5_list>li{/*height:40px;*/line-height:40px;margin-top:7px;}
+.nav5_list>li>a{display:block;color:#fff;font-size:15.5px;padding-left:40px;}
+.nav5_list>li>a:hover{background:#fff;color:#333;border-left:4px solid #97BE0D;padding-left:36px;}
+.nav5_list>li>.cenav_cur{background:#fff;color:#333;border-left:4px solid #97BE0D;padding-left:36px;}
+.small_nav5{border-bottom:1px dashed #6CA7DD;padding-bottom:10px;marign-bottom:10px;display:none}
+.small_nav5 li{line-height:30px;}
+.small_nav5 li a{display:block;color:#DBEEFF;padding-left:50px;}
+.small_nav5 li a:hover{background:#fff;color:#333;border-left:4px solid #97BE0D;padding-left:46px;}
+.small_nav5 li .sn5_cur{background:#fff;color:#333;border-left:4px solid #97BE0D;padding-left:46px;}
+.tel5{margin:0 10px;margin-top:35px;padding-top:20px;border-top:1px solid #4C9EE9; overflow:hidden; /*font-style:italic;*/font-size:12px;}
+.tel5_font{margin-bottom:18px; overflow:hidden;}
+.tel5_font img{margin-top:3px;margin-right:7px;}
+.tel5_font i{font-weight:600;font-size:15px;display:block;font-style:italic;margin-top:0; letter-spacing:1px}
+.tel5_font span{width:133px;/*text-align:center*/}
+.nei_right{width:940px;border:0px solid red;margin-left:40px;}
+.NR_tit{background:url(../images/xgray_line02.png) center repeat-x;margin-bottom:3%;}
+.NR_tit span{background:#fff;font-size:17px;color:#2F88DA;font-weight:600;}
+.ab_font{line-height:23px;margin-top:45px;}
+.ab_img>p>img{float:left;margin-right:30px;margin-bottom:5px;}
+	
+.ab_bottom{margin-top:30px;}
+.ab_bottom img{width:350px;}
+.ab_bottom ul{width:565px;border:0px solid red;margin-left:20px;margin-top:5px}
+.abb_list{}
+.abb_list li{border-bottom:1px dotted #ccc;line-height:25px;margin-bottom:10px;padding-bottom:10px;}
+.abb_list li span{font-size:20px;margin-right:15px;color:#F08300;height:30px;line-height:30px;float:left}
+</style>
+<!-- 抬头开始  -->
+<div class="MJB_header"><a href="index.html">首页</a> > 明星成员</div>
+<!-- 抬头结束  -->
+<!--明星资料 -->
+<!-- <div class="neirong">
+
+<div class="xiangqing_js">
+         <div class="zuobian">
+		<div class="ZJTD_js">
+                       	<img src="__PUBLIC__{$data['pic']}"/>
+				<p><span>职位：</span>{$data['job']} </p>
+				
+				<p><span>手机：</span>{$data['phone']}</p>
+				<p><span>微信：</span>{$data['wx']}</p>
+				<p><span>Q Q：</span>{$data['qq']}</p>
+				<p><span>邮箱：</span>{$data['email']}</p>
+                <p></p>
+				<p><span>个人简介：</span>{$data['synopsis']}</p>
+                				
+    </div>
+    </div>
+</div>
+
+</div> -->
+
+<!--明星资料结束 -->
+    <div> <!--class="main_bg"-->  
+   		<div class="main nei_main width">
+        	<div class="nav_left5"> 
+                <h2 class="nav5_tit">
+                    <strong>古浪风采</strong>
+                    <span>GuLang style</span>
+                </h2>
+                <ul class="nav5_list">
+                    <li>
+                        <a href="{:U('storuser/index',array('status'=>1))}" class="cenav_cur">
+                    荣誉主席团</a></li>
+                
+                    <li>
+                        <a href="{:U('storuser/index',array('status'=>2))}">
+                    名誉会长</a></li>
+                
+                    <li>
+                        <a href="{:U('storuser/index',array('status'=>3))}">
+                    会长</a></li>
+                
+                    <li>
+                        <a href="{:U('storuser/index',array('status'=>4))}">
+                    党委书记</a></li>
+                
+                    <li>
+                        <a href="{:U('storuser/index',array('status'=>5))}">
+                    轮值会长</a></li>
+                
+                    <li>
+                        <a href="{:U('storuser/index',array('status'=>6))}">
+                    执行副会长</a></li>
+                
+                    <li>
+                        <a href="{:U('storuser/index',array('status'=>7))}">
+                     副会长</a></li>
+                
+                    <li>
+                        <a href="{:U('storuser/index',array('status'=>8))}">
+                    常务理事</a></li>
+                
+                    <li>
+                        <a href="{:U('storuser/index',array('status'=>9))}">
+                    理事</a></li>
+                
+                    <li>
+                        <a href="{:U('storuser/index',array('status'=>10))}">
+                    监事会</a></li>
+                        
+                </ul>
+                <div class="tel5">
+                    <p>
+                    <span style="line-height:1.5;"> </span> 
+                    </p>
+                    <p style="white-space:normal;">
+                    <span style="font-size:10px;font-family:微软雅黑;line-height:1.5;">电话：021-50939588</span> 
+                    </p>
+                    <section data-role="outer" label="Powered by 135editor.com" style="font-family:微软雅黑;font-size:16px;">
+                    <p>
+                    <span style="font-size:10px;">传真：021-50939388</span>
+                    </p>
+                    <p>
+                    <span style="font-size:10px;">地址：上海市浦东大道900号华辰金融大厦25楼</span> 
+                    </p>
+                    </section>
+                    <p>
+                    <br />
+                    </p>
+                    <p>
+                    <br />
+                    </p>
+                </div>
+           </div>
+         
+           <div class="fleft nei_right">
+            {$data['lifest']}
+                
+           </div>
+            
+        </div>
+   </div><!--main_bg end-->
+
+
+
+<!--理事单位图片结束 -->
+<!-- 尾部-->
+<include  file="Public/foot" />
+</body>
+</html>

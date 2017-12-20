@@ -1,0 +1,81 @@
+<!--理事单位图片 -->
+<div class="team">
+    <div class="team_title"><span>理事单位</span> / HONOR</div>
+</div>
+<div class="scrollleft">
+<foreach name="direal" item="vo">
+      <ul>
+        <li><a href="{:U('direc/detail',array('id'=>$vo['id']))}"><img src="__PUBLIC__/{$vo.pic}"/></a></li>
+      </ul>
+</foreach>
+</div>
+<!--理事单位图片结束 -->
+
+
+<!-- 底部信息开始 -->
+<div class="bottom_tel">
+    <div class="bottom_tel_nr">
+        <div class="bottom_tel_nr_img"><img src="__ADMINIMG__/tele.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;互利共赢 成就你我&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div class="bottom_zx">
+            <a href="#"><li>免费评估</li></a>
+            <a href=""><li>在线咨询</li></a> 
+        </div>
+    </div>
+</div>
+</div>
+<!-- 底部信息结束 -->
+<div class="bottom_title">
+  <div class="bottom_title_gj">
+      <li>招商引资
+        <ul>
+          <a href=""><li>本地招商</li></a>
+          <a href="#"><li>外地招商</li></a>
+        </ul>
+      </li>
+      <li>理事风采
+        <ul>
+          <a href="{:U('esta/industry',array('pid'=>15))}"><li>建筑行业</li></a>
+          <a href="{:U('esta/industry',array('pid'=>16))}"><li>服务行业</li></a>
+          <a href="{:U('esta/industry',array('pid'=>17))}"><li>餐饮行业</li></a>
+          <a href="{:U('esta/industry',array('pid'=>18))}"><li>零售行业</li></a>
+        </ul>
+      </li>
+      <li>动态公告
+        <ul>
+          <a href="{:U('dynamic/index')}"><li>商会动态</li></a>
+          <a href="{:U('notice/index')}"><li>公告通知</li></a>
+        </ul>
+      </li>
+      <li>关于商会
+        <ul>
+          <a href="{:U('some/speech')}"><li>会长致辞</li></a>
+          <a href="{:U('some/purpose')}"><li>商会遵旨</li></a>
+          <a href="{:U('some/framework')}"><li>组织架构</li></a>
+          <a href="{:U('we/index')}"><li>加入商会</li></a>
+          <a href="{:U('we/index')}"><li>联系我们</li></a>
+        </ul>
+      </li>
+      <li>友情链接
+        <ul>
+          <foreach name="link_list" item="vo">
+          <a href="{$vo['linkplace']}"><li>{$vo['linkname']}</li></a>
+          </foreach>
+        </ul>
+      </li>
+    </div>
+    <div class="bottom_title_js">
+      <div class="bottom_title_ss">
+          <li style="font-size:16px; font-weight:bold; color:#111">扫一扫</li>
+            <li style="line-height:40px">关注”商会公众号”</li>
+            <li><img src="images/HZEWM.jpg"  /></li>
+            <li style="line-height:40px">下载”商会电商平台”</li>
+            <li><img src="images/HZEWM.jpg"  /></li>
+      </div>
+      <div class="bottom_title_cg">
+        <li style="font-size:20px; font-weight:bold; color:#036db7">古浪商会</li>
+        <li>地址:{$we_list['addres']}</li>
+        <li>免费热线:{$we_list['phone']}</li>
+        <li>合作邮箱:{$we_list['email']}</li>
+      </div>
+    </div>
+</div>

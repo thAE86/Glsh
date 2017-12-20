@@ -1,0 +1,87 @@
+<!--头部-->
+<include file="Public/header" />
+<!-- 抬头开始  -->
+<div class="MJB_header"><a href="{:U('index/index')}">首页</a> > 理事风采</div>
+<!-- 抬头结束  -->
+<!--理事风采 -->          
+<div class="projects">
+	<div class="projects_title">
+		<p><span>建筑行业</span></p>
+    </div>
+	<ul>
+		<foreach name="data" item="vo" >
+			<if condition="$vo.pid eq 15 " > 
+		        <li>
+		        	<a href=""><div class="projects_img"><img src="__PUBLIC__{$vo.pic}"/></div></a>
+		            <div class="projects_nr">{$vo['present']}<a href="{:U('esta/detail',array('id'=>$vo['id']))}">查看全部>></a></div>
+		            <div class="projects_bt">{$vo['esname']}</div>
+		        </li> 
+		    </if>
+		</foreach> 
+    </ul> 
+</div>
+<div class="projects">
+	<div class="projects_title">
+		<p><span>服务行业</span></p>
+    </div>
+	<ul>
+		<foreach name="data" item="vo" >
+			<if condition="$vo.pid eq 16 " > 
+		        <li>
+		        	<a href=""><div class="projects_img"><img src="__PUBLIC__{$vo.pic}"/></div></a>
+		            <div class="projects_nr">{$vo['present']}<a href="{:U('esta/detail',array('id'=>$vo['id']))}">查看全部>></a></div>
+		            <div class="projects_bt">{$vo['esname']}</div>
+		        </li> 
+		    </if>
+		</foreach> 
+    </ul> 
+</div>
+<div class="projects">
+	<div class="projects_title">
+		<p><span>餐饮行业</span></p>
+    </div>
+	<ul>
+		<foreach name="data" item="vo" >
+			<if condition="$vo.pid eq 17 " > 
+		        <li>
+		        	<a href=""><div class="projects_img"><img src="__PUBLIC__{$vo.pic}"/></div></a>
+		            <div class="projects_nr">{$vo['present']}<a href="{:U('esta/detail',array('id'=>$vo['id']))}">查看全部>></a></div>
+		            <div class="projects_bt">{$vo['esname']}</div>
+		        </li> 
+		    </if>
+		</foreach> 
+    </ul> 
+</div>
+<div class="projects">
+	<div class="projects_title">
+		<p><span>零售行业</span></p>
+    </div>
+	<ul>
+		<foreach name="data" item="vo" >
+			<if condition="$vo.pid eq 18 " > 
+		        <li>
+		        	<a href=""><div class="projects_img"><img src="__PUBLIC__{$vo.pic}"/></div></a>
+		            <div class="projects_nr">{$vo['present']}<a href="{:U('esta/detail',array('id'=>$vo['id']))}">查看全部>></a></div>
+		            <div class="projects_bt">{$vo['esname']}</div>
+		        </li> 
+		    </if>
+		</foreach> 
+    </ul> 
+</div>
+
+<div class="topNew_kong"></div>
+
+
+
+
+
+
+<!--理事风采结束 -->
+
+
+
+<!--理事单位图片结束 -->
+<!-- 尾部-->
+<include  file="Public/foot" />
+</body>
+</html>

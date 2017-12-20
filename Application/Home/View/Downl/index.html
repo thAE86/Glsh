@@ -1,0 +1,43 @@
+<!--头部-->
+<include file="Public/header" />
+<!-- 抬头开始  -->
+<div class="MJB_header"><a href="index.html">首页</a> > 资源下载</div>
+<!-- 抬头结束  -->
+<!--动态列表 -->
+<div class="XW_nr">
+    <foreach name="data" item="vo">
+    	<if condition="$vo.status eq 1 " >
+		  	<a href="{:U('Downl/down',array('id'=>$vo['id']))}"><li>
+		    	<div class="XW_nr_1" >
+		    	<img style="width:42px;height:48px;" src="__PUBLIC__/images/docpic.png" /></div>
+		        <div class="XW_nr_2">
+		        	<p><span>{$vo.title}</span></p>
+		        	<p>{$vo.general}</p>
+		        </div>
+		       <div class="XW_nr_3">下 载</div>
+		    </li></a>
+	    <elseif condition="$vo.status eq 2 " />
+		    <a href="{:U('Downl/down',array('id'=>$vo['id']))}"><li>
+		    	<div class="XW_nr_1" >
+		    	<img style="width:69px;height:62px;" src="__PUBLIC__/images/pdfpic.png" /></div>
+		        <div class="XW_nr_2">
+		        	<p><span>{$vo.title}</span></p>
+		        	<p>{$vo.general}</p>
+		        </div>
+		       <div class="XW_nr_3">下 载</div>
+		    </li></a>
+	    </if>
+    </foreach>
+    <div class="success_al_bottom">
+        {$show}
+    </div>
+</div>
+<!--动态列表结束 -->
+
+
+
+<!--理事单位图片结束 -->
+<!-- 尾部-->
+<include  file="Public/foot" />
+</body>
+</html>

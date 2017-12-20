@@ -1,0 +1,30 @@
+<!--头部-->
+<include file="Public/header" />
+<!-- 抬头开始  -->
+<div class="MJB_header"><a href="index.html">首页</a> > 行业企业</div>
+<!-- 抬头结束  -->
+<!--企业列表 -->
+<div class="MJB_nr">
+	 <foreach name="data" item="vo">  
+		<a href="{:U('esta/detail',array('id'=>$vo['id']))}"><li style="margin-left:18px">
+	    	<div class="MJB_nr_image"><img src="__PUBLIC__{$vo['pic']}"/></div>
+	        <div class="MJB_nr_title">
+	        	<p><span>{$vo['esname']}</span></p>
+	            <p style="height:112px;">{$vo['present']}</p>
+	            <p><strong>查看详情+</strong></p>
+	        </div>
+	    </li></a>
+    </foreach>
+</div>
+<div style="height:40px;margin-left:45%">
+    {$show}
+</div>
+<!--企业列表结束 -->
+
+
+
+<!--理事单位图片结束 -->
+<!-- 尾部-->
+<include  file="Public/foot" />
+</body>
+</html>

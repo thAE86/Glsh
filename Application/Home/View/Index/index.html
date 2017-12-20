@@ -1,0 +1,167 @@
+<!--头部-->
+<include file="Public/header" />
+
+<div class="topNew">
+  <div class="topNew_nr">
+    <div class="left">
+      <div class="topNew_ym">
+        <dl class="slideBox">
+          <dt>
+            <span><a  href="{:U('Dynamic/index')}">商会动态</a></span>
+            
+            <span><a  href="{:U('Notice/index')}">公告通知</a></span>
+          </dt>
+          <dd>
+            <div class="topNew_ym">
+
+              <div class="topNew_ym_pic"><img src="__PUBLIC__{$dna['pic']}"/></div>
+              <div class="topNew_ym_nr">
+                    <p><span>{$dna['title']}</span></p>
+                    <p>{$dna['general']}...<a href="{:U('dynamic/detail',array('id'=>$dna['id']))}">[查看详情]</a></p>  
+              </div> 
+              <div class="topNew_ym_li">
+                <foreach name="dna_list" item="v">
+                  <a href="{:U('dynamic/detail',array('id'=>$v['id']))}">
+                    <li>●{$v.title}<span>{$v['retime']}</span></li>
+                  </a>
+                </foreach>
+              </div>
+            </div>
+          </dd> 
+
+          <dd>
+            <div class="topNew_ym"> 
+              <div class="topNew_ym_pic"><img src="__PUBLIC__{$notice['pic']}"/></div>
+              <div class="topNew_ym_nr">
+                    <p><span>{$notice['title']}</span></p>
+                    <p>{$notice['general']}...<a href="{:U('notice/detail',array('id'=>$notice['id']))}">[查看详情]</a></p>
+              </div>
+              <div class="topNew_ym_li">
+                <foreach name="n_list" item="v">
+                  <a href="{:U('notice/detail',array('id'=>$v['id']))}">
+                    <li>●{$v.title}<span>{$v['retime']}</span></li>
+                  </a>
+                </foreach>
+              </div>
+            </div>
+          </dd> 
+        </dl>
+      </div>
+     <!--活动热报 -->       
+    <div class="hotNews">
+       <div class="hotNews_title">◆ 活动热报
+        <span><a href="{:U('active/index')}">更多+</a></span>
+       </div>
+       <a href="{:U('active/detail',array('id'=>$active_list['id']))}">
+          <div class="hotNews_image">
+            <img src="__PUBLIC__/{$active_list.pic}"/>
+          </div>
+          <div class="hotNews_nr">
+            <p><span>{$active_list.title}</span></p>
+            <p>时间:{$active_list.time}</p>
+            <p>地点:{$active_list.place}</p>
+            <p>电话:{$active_list.phone}</p>
+          </div>
+       </a>
+    </div>
+
+
+    </div>
+  </div>
+</div>
+<!--明星成员-->
+<div class="team">
+    <div class="team_title"><span>明星成员</span> / TEAM</div>
+</div>
+<div class="team_nr">
+    <div class="team_nr_1">
+       <img src="__PUBLIC__/{$teampic['pic']}"/>
+    </div> 
+    <div class="team_nr_2">
+    <foreach name="stor_list" item="vo">
+        <ul>
+            <li>
+              <a href="{:U('storuser/detail',array('id'=>$vo['id']))}">
+                <div class="team_nr_2_img">
+                    <img src="__PUBLIC__/{$vo.pic}"/>
+                </div>
+                <div class="team_nr_2_nr">
+                    <div class="team_nr_2_nr_a">{$vo.name}</div>
+                    <div class="team_nr_2_nr_b">{$vo.job}</div>
+                    <div class="team_nr_2_nr_b">{$vo.firm}</div>
+                </div>
+              </a>
+            </li> 
+        </ul>
+    </foreach>
+    </div>
+</div> 
+<!--明星成员结束-->
+<!-- 明星企业 -->
+<div class="YMCountry">
+  <dl class="slideBox1">
+    <dt>
+      <span>地产明星</span>
+      <span>服务明星</span>
+      <span>餐饮明星</span>
+      <span>零售明星</span>
+    </dt>
+    <foreach name="esta_list" item="va">  
+      <dd><!-- 地产 -->
+        <div class="YMCountry_nr">
+          
+            <div class="YMCountry_image">
+              <img src="__PUBLIC__/{$va.pic}"/>
+            </div>
+            <div class="YMCountry_title">
+                <p align="center"><span>{$va.esname}</span></p>
+                <p>{$va.present}<a href="{:U('esta/detail',array('id'=>$va['id']))}">......[查看详情]</a></p>
+            </div>
+          
+  <!--           <div class="YMCountry_gj">
+            <foreach name="company_list" item="vv">
+              <a href="#"><li style="margin-left:0">
+                <p><span>{$vv.company_name}</span></p>
+                <p>★ 从事业务：{$vv.company_operation}</p>
+                <p>★ 联系电话：{$vv.company_tel}</p>
+                <p>★ 公司地址：{$vv.company_address}</p>
+              </li></a>
+            </foreach>
+            </div> -->
+
+        </div>
+      </dd>
+    </foreach>
+  </dl>
+</div>
+    
+<!-- 明星企业结束 -->
+<!--精选理事 -->
+<div class="ChoiceXM">
+  <div class="ChoiceXM_tm"><span>精选理事</span> / PROJECT</div>
+</div>
+<div class="ChoiceXM_nr">
+<foreach name="dire_list" item="vc">
+  <a href="{:U('direc/detail',array('id'=>$vc['id']))}">
+    <li style="margin-left:18px">
+      <div class="ChoiceXM_bt">{$vc.diname}</div>
+      <div class="ChoiceXM_image">
+        <img src="__PUBLIC__/{$vc.pic}">
+      </div> 
+      <div class="ChoiceXM_title">
+        <p><span>企业信息 / Application conditions</span></p>
+        <p>从事业务：{$vc.operation}</p>
+        <p>联系电话：{$vc.phone}</p>
+        <p>公司地址：{$vc.address}</p>
+      </div>
+    </li>
+  </a>
+</foreach>  
+</div>
+<!--精选理事结束 -->
+
+
+<!-- 尾部-->
+<include  file="Public/foot" />
+</body>
+</html>

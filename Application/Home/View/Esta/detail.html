@@ -1,0 +1,40 @@
+<!--头部-->
+<include file="Public/header" />
+<!-- 抬头开始  -->
+<div class="MJB_header"><a href="index.html">首页</a> > 明星企业</div>
+<!-- 抬头结束  -->
+<!--明星企业头部 -->
+<div class="HZXQ">
+	<img src="__PUBLIC__{$data['pic']}" />
+    <p><span>{$data['esname']}</span></p>
+    <p>{$data['present']}</p>
+</div>
+<!--明星企业内容 -->
+
+<div class="YMCountry" style="height:400px;">
+  <dl class="slideBox1">
+    <dt>
+      <span>企业介绍</span>
+      <span>从事业务</span>
+      <span>联系方式</span>
+    </dt>
+    <foreach name="arr" item="vo">  
+      <dd><!-- 地产 -->
+        <div class="YMCountry_nr">
+            <div class="YMCountry_title" style="margin-left:20%">
+                <p>{$vo}</p>      
+            </div>
+        </div>
+      </dd>
+    </foreach>
+  </dl>
+</div>
+
+
+<!-- 结束-->
+
+<!--理事单位图片结束 -->
+<!-- 尾部-->
+<include  file="Public/foot" />
+</body>
+</html>

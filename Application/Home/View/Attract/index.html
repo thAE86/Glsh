@@ -1,0 +1,30 @@
+<!--头部-->
+<include file="Public/header" />
+<!-- 抬头开始  -->
+<div class="MJB_header"><a href="index.html">首页</a> > 招商引资</div>
+<!-- 抬头结束  -->
+<!--动态列表 -->
+<div class="XW_nr">
+    <foreach name="data" item="vo">
+	    <a href="{:U('Attract/detail',array('id'=>$vo['id']))}"><li>
+	    	<div class="XW_nr_1"><img src="__PUBLIC__{$vo['pic']}" /></div>
+	        <div class="XW_nr_2">
+	        	<p><span>{$vo.title}</span></p>
+	        	<p>{$vo.general}</p>
+	        </div>
+	        <div class="XW_nr_3">详 情</div>
+	    </li></a>
+    </foreach>
+    <div class="success_al_bottom">
+        {$show}
+    </div>
+</div>
+<!--动态列表结束 -->
+
+
+
+<!--理事单位图片结束 -->
+<!-- 尾部-->
+<include  file="Public/foot" />
+</body>
+</html>
