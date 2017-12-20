@@ -1,0 +1,237 @@
+body{
+	margin:0px;
+	padding:0px;
+}
+#header{
+	width:100%;
+	/*border:1px solid red;*/
+	float:left;
+}
+#dingbu{
+	float:left;
+	width:100%;
+	height:26px;
+	background:#4D4D4D;
+	text-align:right;
+	line-height:26px;
+	color:white;
+	font-size:13px;
+}
+#dingbu>font{
+	float:right;
+	margin-right:100px;
+}
+#daohang{
+	float:left;
+	width:100%;
+	/*height:60px;*/
+}
+#daohang1{
+	float:left;
+	/*width:100%;*/
+	/*height:60px;*/
+	margin-top:8px;
+	margin-bottom:8px;
+	margin-left:143px;
+}
+#content{
+	width:100%;
+	/*height:800px;*/
+	float:left;
+	background:#EFF0F1;
+	/*border:1px solid red;*/
+}
+#shoukuan{
+	width:100%;
+	float:left;
+	height:100px;
+	/*border:1px solid red;*/
+}
+.kuan1{
+	float:left;
+	width:650px;
+	/*border:1px solid red;*/
+	font-size:13px;
+	margin-left:145px;
+	margin-top:28px;
+}
+.kuan2{
+	float:left;
+	width:650px;
+	/*border:1px solid red;*/
+	font-size:15px;
+	margin-left:145px;
+	margin-top:10px;
+}
+.kuan3{
+	float:right;
+	width:150px;
+	/*border:1px solid red;*/
+	margin-right:165px;
+	margin-top:31px;
+	text-align:center;
+}
+.kuan30{
+	float:right;
+	width:68px;
+	height:25px;
+	/*border:1px solid red;*/
+	background:#b3b3b3;
+	font-size:13px;
+	color:white;
+	text-align:center;
+	line-height:25px;
+	margin-right:40px;
+	
+}
+
+#fukuan{
+	width:954px;
+	height:500px;
+	/*border:1px solid red;*/
+	float:left;
+	margin-left:145px;
+	background:white;
+}
+#fukuan1{
+	width:800px;
+	height:500px;
+	/*border:1px solid red;*/
+	float:left;
+}
+
+.fu10{
+	float:left;
+	width:500px;
+	/*border:1px solid red;*/
+	height:130px;
+}
+.fu11{
+	float:left;
+	width:500px;
+	/*border:1px solid red;*/
+}
+
+.fu100{
+	float:left;
+	width:115px;
+	/*border:1px solid red;*/
+	/*height:100px;*/
+	text-align:center;
+	font-size:12px;
+	margin-left:360px;
+	margin-top:70px;
+	color:#f60;
+}
+.fu11{
+	float:left;
+	width:500px;
+	/*border:1px solid red;*/
+	height:300px;
+}
+.fu110{
+	float:right;
+	border:1px solid #ccc;
+	width:168px;
+	height:220px;
+}
+.fu1100{
+	float:right;
+	/*border:1px solid red;*/
+	width:168px;
+	height:168px;
+	line-height:168px;
+	text-align:center;
+}
+.fu1101{
+	float:right;
+	/*border:1px solid red;*/
+	/*width:168px;*/
+	height:52px;
+	/*line-height:52px;*/
+	/*text-align:center;*/
+	font-size:13px;
+	margin-right:20px;
+	color:#666;
+}
+.fu1101>img{
+	margin-top:5px;
+	float:left;
+}
+.fu1101>div{
+	margin-top:5px;
+	float:left;
+	margin-left:5px;
+}
+.fu1102{
+	float:right;
+	/*border:1px solid red;*/
+	font-size:13px;
+	color:#666;
+	margin-right:3px;
+	margin-top:10px;
+}
+.fu12{
+	float:left;
+	/*border:1px solid red;*/
+	width:204px;
+	height:183px;
+	
+}
+#fukuan2{
+	width:154px;
+	height:500px;
+	/*border:1px solid red;*/
+	float:left;
+	background:#e6e6e6;
+}
+.fukuan20{
+	float:left;
+	/*width:100px;*/
+	margin-left:20px;
+	margin-top:130px;
+}
+.fukuan21{
+	float:left;
+	margin-left:35px;
+	margin-top:30px;
+}
+.fukuan22{
+	float:left;
+	width:106px;
+	height:36px;
+	background:#00aeef;
+	border-radius:5px;
+	text-align:center;
+	line-height:36px;
+	margin-left:23px;
+	margin-top:30px;
+	font-size:13px;
+	color:white;
+}
+.fukuan220{
+	float:left;
+	width:106px;
+	height:36px;
+	background:#00aeef;
+	border-radius:5px;
+	text-align:center;
+	line-height:36px;
+	margin-left:23px;
+	margin-top:30px;
+	font-size:13px;
+	color:white;
+}
+#banquan{
+	width:100%;
+	float:left;
+	text-align:center;
+	font-size:13px;
+	color:#666;
+	margin-top:30px;
+}
+#youqing{
+	float:left;
+	margin-left:370px;
+	margin-top:30px;
+}
