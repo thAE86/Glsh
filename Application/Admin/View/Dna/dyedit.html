@@ -1,0 +1,73 @@
+<extend name="Public/base" />
+
+<block name="main">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">修改动态</h1>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">修改动态</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-12">
+							<form role="form" method="post" action="{:U('Dna/dyupdate')}" enctype="multipart/form-data">
+								<div class="form-group">
+									
+									<input class="form-control" type="hidden" name="id"  value="{$data['id']}">
+								</div>
+
+								<div class="form-group">
+									<label>标题:</label>
+									<input class="form-control" name="title"  value="{$data['title']}">
+								</div>
+								<div class="form-group">
+									<label>引文:</label>
+									<textarea class="form-control" rows="3" name="general" value="">{$data['general']}</textarea>
+								</div>
+								<div class="form-group">
+                                    <label>上传图片</label>
+                                    <input type="file" name='pic' value="{$data['pic']}">
+                                </div>
+								<div class="form-group">
+									<label>首页展示</label>
+									<label class="radio-inline">
+									<input type="radio" name="pstatus" id="pstatus" value="1" {$data['pstatus'] == 1 ? 'checked' : ''}>是</label>
+									<label class="radio-inline">
+									<input type="radio" name="pstatus" id="pstatus" value="2" {$data['pstatus'] == 2 ? 'checked' : ''}>否</label>
+								</div>
+								<div class="form-group">
+									<label>首页列表展示</label>
+									<label class="radio-inline">
+									<input type="radio" name="hstatus" id="pstatus" value="1" {$data['hstatus'] == 1 ? 'checked' : ''}>是</label>
+									<label class="radio-inline">
+									<input type="radio" name="hstatus" id="pstatus" value="2" {$data['hstatus'] == 2 ? 'checked' : ''}>否</label>
+								</div>
+								<div class="form-group">
+									<label>动态页展示</label>
+									<label class="radio-inline">
+									<input type="radio" name="xstatus" id="xstatus" value="1" {$data['xstatus'] == 1 ? 'checked' : ''}>是</label>
+									<label class="radio-inline">
+									<input type="radio" name="xstatus" id="xstatus" value="2" {$data['xstatus'] == 2 ? 'checked' : ''}>否</label>
+								</div>
+							
+							
+								<button type="submit" class="btn btn-default">修改</button>
+							</form>
+						</div>
+						<!-- /.col-lg-6 (nested) -->
+					</div>
+					<!-- /.row (nested) -->
+				</div>
+				<!-- /.panel-body -->
+			</div>
+			<!-- /.panel -->
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+</block>

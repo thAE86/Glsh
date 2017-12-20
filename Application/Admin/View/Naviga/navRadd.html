@@ -1,0 +1,48 @@
+<extend name="Public/base" />
+
+<block name="main">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">导航添加</h1>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">导航添加</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-12">
+							<form role="form" method="post" action="{:U('Naviga/navRinsert')}" enctype="multipart/form-data">
+							<input type="hidden" name="sort_level" value="2">
+								<div class="form-group">
+                                    <label>所属二级导航</label>
+                                    <select class="form-control" name='sort_pid' id="parental">
+                                       <option>--请选择--</option>
+                                       <foreach  name="parental" item="vo">
+                                       <option value="{$vo['id']}">{$vo['sort_name']}</option>
+                                       </foreach>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+									<label>导航名称</label>
+									<input class="form-control" name="sort_name" value="" placeholder="请输入导航名称">
+								</div>	
+								<button type="submit" class="btn btn-success">添加</button>
+							</form>
+						</div>
+						<!-- /.col-lg-6 (nested) -->
+					</div>
+					<!-- /.row (nested) -->
+				</div>
+				<!-- /.panel-body -->
+			</div>
+			<!-- /.panel -->
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+
+</block>

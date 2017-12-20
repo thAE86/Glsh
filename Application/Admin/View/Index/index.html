@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>古浪商会后台管理系统</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="__PUBLIC__/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="__PUBLIC__/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="__PUBLIC__/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="__PUBLIC__/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body style="background:url('__PUBLIC__/images/login_bk.jpg');width:100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default" style="margin-top:60%;background:url('__PUBLIC__/images/login_bk.jpg');border:0;">
+                    <div class="panel-body">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input type="hidden" name="id" value="{$data['id']}">
+                                    <label id='error' style='font-size:13px;color:white;'></label><br>
+                                    <label>用户名</label>
+                                    <input class="form-control" placeholder="请输入用户名" name="username" type="text" autofocus id='username'value="">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="请输入密码" name="password" type="password" id='password' value="">
+                                </div>
+                                <div class="form-group">
+                                    <img src="{:U('Index/code')}" onclick="this.src='{:U('Index/code')}?id='+Math.random()" alt="" width="48%" height="33px">
+                                    <input class="form-control" placeholder="请输入验证码" id='code' style='width:200px;margin-top:10px;'>
+                                    
+                                </div>                                 
+
+                                <div class="form-group" style="margin-top:20px;">
+                                    <button class="btn btn-lg btn-default btn-block" id='login'>点击登录</button>
+                                </div>
+                            </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="__PUBLIC__/jquery/dist/jquery-1.8.3.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="__PUBLIC__/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="__PUBLIC__/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="__PUBLIC__/dist/js/sb-admin-2.js"></script>
+    
+    <script type="text/javascript">
+    
+    $(function(){
+        document.onkeydown=function(event){
+            var e = event || window.event || arguments.callee.caller.arguments[0];           
+             if(e && e.keyCode==13){ 
+                 $('#login').click();
+            }
+        }; 
+  
+        $('#login').click(function(){
+            
+            var uvalue = $.trim($('#username').val());
+            
+            var pvalue = $.trim($('#password').val());
+            var code   = $.trim($('#code').val()); 
+
+            $.post('{:U('Index/yanzheng')}',{'username':uvalue,'password':pvalue,'code':code},function(msg){
+                if(msg == '1'){
+                    $('#error').html('用户名不能为空,请重新输入');
+                }else if(msg == '2'){
+                    $('#error').html('用户名不存在,请重新输入');
+                }else if(msg == '3'){
+                    $('#error').html('密码不能为空,请重新输入');
+                }else if(msg == '4'){
+                    $('#error').html('密码不正确,请重新输入'); 
+                }else if(msg == 'yes'){
+                    location.href="{:U('Admin/index')}";
+                }else if(msg == '5'){
+                    $('#error').html('验证码不能为空,请重新输入');
+                }else if(msg == '6'){
+                    $('#error').html('验证码不正确,请重新输入');
+                }
+            })
+        })
+
+
+
+
+})
+
+ // if (event.keyCode==13)  //回车键的键值为13
+ //   document.getElementByIdx_x("input1").click(); //调用登录按钮的登录事件
+
+   
+    </script>
+</body>
+</html>

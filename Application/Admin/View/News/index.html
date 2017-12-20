@@ -1,0 +1,200 @@
+<extend name="Public/base" />
+
+<block name="main">
+<style>
+  .num,.prev,.next,.first,.end{
+    margin:0 3px;
+  }
+</style>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">新闻列表</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">新闻列表</div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>新闻标题</th>
+                  <th>发布时间</th>
+                  <th>首页展示</th>
+                  <th>内容编辑</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <foreach name="data" item="vo">
+                <tr>
+                  <td>{$vo['news_title']}</td>
+                  <td>{$vo['news_time']}</td>
+                  <td>
+                    <if condition="$vo['news_show'] eq 1">
+                      是
+                    <elseif condition="$vo['news_show'] eq 2" />
+                      否
+                    </if>
+                  </td>
+                <td>
+                  <a href="{:U('News/text',array('id'=>$vo['id']))}" class="btn btn-success btn-xs">去编辑</a>
+                </td>
+                  <td>
+                    <a class="btn btn-info btn-xs" data-toggle="modal" data-target="#upModal" id="{$vo.id}" name="update" show="{$vo['news_show']}">修改</a>
+                    <a href="{:U('News/del',array('id'=>$vo['id']))}" class="btn btn-danger btn-xs">删除</a>
+                  </td>
+                </tr>
+                </foreach>
+              </tbody>
+              <tr>
+                <td colspan="10" class="text-right">{$show}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--新闻修改模态框 -->
+    <form method="post" action="" class="form-horizontal" role="form" id="form_update"  style="margin: 20px;">
+    <div class="modal fade" id="upModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:25%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        新闻修改
+                    </h4>
+                </div>
+                <div class="modal-body">
+                   <form class="form-horizontal" role="form"> 
+                        <div class="form-group">
+                            <label  class="col-sm-3 control-label">新闻标题:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="news_title" name="news_title" value=""
+                                placeholder="请输入新闻标题">
+                                <input type='hidden' name="id" id="id" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-3 control-label">发布时间:</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="news_time" name="news_time" value=""
+                                placeholder="请输入发布时间"> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-3 control-label">首页展示:</label>
+                            <div class="col-sm-9">
+                              <label class="radio-inline">
+                              <input type="radio" name="news_show" id="showone" value="1">是</label>
+                              <label class="radio-inline">
+                              <input type="radio" name="news_show" id="showtwo" value="2">否</label> 
+                            </div>
+                        </div>
+                   </form> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="subup">
+                        提交
+                    </button>
+                    <span id="tip"></span> 
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    </form>
+    <!--结束-->
+<script>
+$(function(){
+//模态框居中
+  function centerModals() {   
+  　　$("div[class='modal fade']").each(function(i) {   
+  　　　　var $clone = $(this).clone().css('display','block').appendTo('body');
+  　　　　var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 3);
+  　　　　top = top > 0 ? top : 0;   
+  　　　　$clone.remove();   
+  　　　　$(this).find('.modal-content').css("margin-top", top);   
+  　　});   
+  };
+  $("div[class='modal fade']").on('show.bs.modal', centerModals);
+
+  //禁用空白处点击关闭
+  $("div[class='modal fade']").modal({
+    backdrop: 'static',
+    keyboard: false,//禁止键盘
+    show:false
+  });
+  //页面大小变化是仍然保证模态框水平垂直居中
+  $(window).on('resize', centerModals);
+  //模态框导航修改
+  $("a[name='update']").click(function(){
+    var news_title=$(this).parent().prev().prev().prev().prev().text();
+    var news_show=$(this).attr('show');
+    var id=$(this).attr('id');
+    $('#news_title').attr('value',news_title);
+    $('#id').attr('value',id);
+    if(news_show=='1'){
+      $('#showone').prop('checked',true);
+     }else if(news_show=='2'){
+        $('#showtwo').prop('checked',true);
+     }
+    
+    
+  })
+  $('#subup').click(function(){
+          var news_time = $.trim($('#news_time').val());
+          if(!news_time)
+          {
+              alert('请选择发布日期！');
+              return false;
+          }
+           var id=$('#id').val();
+           var news_title=$('#news_title').val();
+           var news_time=$('#news_time').val();
+           var obj = document.getElementsByName("news_show");
+           for(var i=0; i<obj.length; i ++){
+              if(obj[i].checked){
+                  var news_show=obj[i].value;
+              }
+            }
+          $.ajax({
+            url : "{:u('update')}",
+            data : {
+                                                 
+                news_title:news_title,
+                news_time:news_time,
+                news_show:news_show,
+                id:id
+
+            }
+          }).done(function(data) {
+              if (data['ret'] == 1) {
+                  
+                  
+                  location.reload();
+              } else {
+                  alert("操作失败!");
+              }
+          });
+
+  })
+
+
+
+
+
+
+})
+
+
+</script>
+</block>

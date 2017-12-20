@@ -1,0 +1,263 @@
+<extend name="Public/base"  />
+
+<block name="main">
+<style>
+	.num,.prev,.next,.first,.end{
+		margin:0 3px;
+	}
+	#ss{
+		position:relative;
+		top:36px;
+		left:100px;
+	}
+</style>
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">导航管理</h1>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<div class="row" >
+		<div class="col-lg-12">
+			
+				<form>
+					<table id="ss">
+						<tr >
+							<th>
+								<input  type="text" name="username" class="form-control input-sm" placeholder="导航名查询">
+								
+							</th>
+							<th style="position:absolute;margin-left:20px;">
+							    <button type="button" class="btn btn-sm btn-primary">搜索</button>
+
+							</th>
+						</tr>
+					</table>
+				</form>
+			<div class="panel panel-default">
+				<div class="panel-heading">导航管理 
+					<a class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal" style="margin-left:18%;margin-top:-5px;">		添加
+					</a>
+				</div>
+
+				<!-- /.panel-heading -->
+				<div class="panel-body">
+					<div class="table-responsive">
+						<table class="table table-striped table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>导航名称</th>	
+																	
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<foreach name="data" item="vo">
+								<tr>
+									<td>{$vo['sort_name']}</td>	
+
+									<td>
+										<a  class="btn btn-info btn-xs" data-toggle="modal" data-target="#upModal" id="{$vo.id}" name="update">修改</a>
+										<a href="{:U('Naviga/delete',array('id'=>$vo['id']))}" class="btn btn-danger btn-xs">删除</a>
+									</td>
+								</tr>
+								</foreach>
+							</tbody>
+							<tr>
+								<td colspan="7" class="text-right">{$show}</td>
+							</tr>
+						</table>
+					</div>
+					<!-- /.table-responsive -->
+				</div>
+				<!-- /.panel-body -->
+			</div>
+			<!-- /.panel -->
+		</div>
+		<!-- /.col-lg-6 -->
+	</div>
+	<!-- /.row -->
+	<!-- 导航添加模态框-->
+    <form method="post" action="" class="form-horizontal" role="form" id="form_data"  style="margin: 20px;">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:25%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        添加导航
+                    </h4>
+                </div>
+                <div class="modal-body">
+                   <form class="form-horizontal" role="form"> 
+                        <div class="form-group">
+                            <label  class="col-sm-3 control-label">导航名称</label>
+                            <div class="col-sm-9">
+                                <input type="text" style="width:60%;" class="form-control" id="sort_name" name="sort_name" value=""
+                                placeholder="请输入导航名称">
+                                <input type='hidden' name="sort_pid" id="sort_pid" value="0">
+                                <input type='hidden' name="sort_level" id="sort_level" value="0">
+                            </div>
+                        </div>
+                   </form> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="sub">
+                        提交
+                    </button>
+                    <span id="tip"></span> 
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    </form>
+    <!-- -->
+    <!--导航修改模态框 -->
+    <form method="post" action="" class="form-horizontal" role="form" id="form_update"  style="margin: 20px;">
+    <div class="modal fade" id="upModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:25%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        修改导航
+                    </h4>
+                </div>
+                <div class="modal-body">
+                   <form class="form-horizontal" role="form"> 
+                        <div class="form-group">
+                            <label  class="col-sm-3 control-label">导航名称</label>
+                            <div class="col-sm-9">
+                                <input type="text" style="width:60%;" class="form-control" id="sort_name_up" name="sort_name" value=""
+                                placeholder="请输入导航名称">
+                                <input type='hidden' name="sort_id" id="sort_id_up" value="">
+                                <input type='hidden' name="sort_pid" id="sort_pid_up" value="0">
+                                <input type='hidden' name="sort_level" id="sort_level_up" value="0">
+                            </div>
+                        </div>
+                   </form> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="subup">
+                        提交
+                    </button>
+                    <span id="tip"></span> 
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    </form>
+    <!-- -->
+</div>
+<script>
+$(function(){
+	
+  //模态框居中
+	function centerModals() {   
+	　　$("div[class='modal fade']").each(function(i) {   
+	　　　　var $clone = $(this).clone().css('display','block').appendTo('body');
+	　　　　var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 3);
+	　　　　top = top > 0 ? top : 0;   
+	　　　　$clone.remove();   
+	　　　　$(this).find('.modal-content').css("margin-top", top);   
+	　　});   
+	};
+	$("div[class='modal fade']").on('show.bs.modal', centerModals);
+
+	//禁用空白处点击关闭
+	$("div[class='modal fade']").modal({
+		backdrop: 'static',
+		keyboard: false,//禁止键盘
+		show:false
+	});
+	//页面大小变化是仍然保证模态框水平垂直居中
+	$(window).on('resize', centerModals);
+	//模态框导航修改
+	$("a[name='update']").click(function(){
+		var sort_name=$(this).parent().prev().text();
+		var sort_id=$(this).attr('id');
+		$('#sort_name_up').attr('value',sort_name);
+		$('#sort_id_up').attr('value',sort_id);
+		
+	})
+	$('#subup').click(function(){
+		var sort_name = $.trim($('#sort_name_up').val());
+        if(!sort_name)
+        {
+            alert('导航名称不能为空！');
+            return false;
+        }
+           var sort_id=$('#sort_id_up').val();
+           var sort_pid=$('#sort_pid_up').val();
+           var sort_level=$('#sort_level_up').val();
+          $.ajax({
+		        url : "{:u('update')}",
+		        data : {
+		                                             
+		            sort_name:sort_name,
+		            sort_pid:sort_pid,
+		            sort_level:sort_level,
+		            sort_id:sort_id
+
+		        }
+	        }).done(function(data) {
+	            if (data['ret'] == 1) {
+	                $("#tip").html("<span style='color:blueviolet'>添加成功！</span>");
+	                
+	                location.reload();
+	            } else {
+	                swal("操作失败!");
+	            }
+	        });
+
+	})
+
+	//模态框导航添加
+	$('#sub').click(function(){
+		var sort_name = $.trim($('#sort_name').val());
+       
+
+        if(!sort_name)
+        {
+            alert('导航名称不能为空！');
+            return false;
+        }
+           var  sort_pid= $('#sort_pid').val();
+           var sort_level= $('#sort_level').val();
+          $.ajax({
+		        url : "{:u('insert')}",
+		        data : {                                     
+		            sort_name:sort_name,
+		            sort_pid:sort_pid,
+		            sort_level:sort_level
+
+		        }
+	        }).done(function(data) {
+	            if (data['ret'] == 1) {
+	                $("#tip").html("<span style='color:blueviolet'>添加成功！</span>");
+	                
+	                location.reload();
+	            } else {
+	                swal("操作失败!");
+	            }
+	        });
+
+	})
+	
+
+
+
+})
+
+</script>
+</block>
